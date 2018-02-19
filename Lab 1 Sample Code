@@ -80,10 +80,9 @@ void loop()
     
     if (countsLeft < 10500)
     {
-      motors.setSpeeds(-pwm, 0.985*pwm);
+//      motors.setSpeeds(-pwm, 0.985*pwm);
 //      motors.setSpeeds(400, 394);
-
-//      motors.setSpeeds(400, 400);
+      motors.setSpeeds(100, 100);
 
     }
     else{
@@ -92,8 +91,8 @@ void loop()
 
     // Send the information to the serial monitor also.
     snprintf_P(report, sizeof(report),
-        PSTR("%6d %6d %1d %1d %lu"),
-        countsLeft, countsRight, errorLeft, errorRight, sampletime);
+        PSTR("%6d %6d %1d %1d %lu %1d"),
+        countsLeft, countsRight, errorLeft, errorRight, sampletime, pwm);
     Serial.println(report);
   }
 
